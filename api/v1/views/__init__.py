@@ -2,9 +2,9 @@
 # initialise package
 
 from flask import Blueprint
-from api.v1.views.state import init_state
+from api.v1.views.states import init_state
 from .index import *
-from .state import *
+from .states import *
 from api.v1.views.amenities import init_amenity
 from api.v1.views.user import init_user
 
