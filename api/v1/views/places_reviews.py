@@ -34,7 +34,7 @@ def creates_reviews(place_id):
     if not place:
         abort(404)
 
-    if not request.get_json:
+    if not request.is_json:
         abort(404, 'Not a JSON')
     data = request.get_json
 
@@ -51,7 +51,7 @@ def update_review(review_id):
     if not review:
         abort(404)
     
-    if not request.get_json:
+    if not request.is_json:
         abort(404, 'Not a JSON')
     
     data = request.get_json()

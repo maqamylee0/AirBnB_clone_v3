@@ -35,7 +35,7 @@ def create_cities(state_id):
     if not state:
         abort(404)
 
-    if not request.get_json():
+    if not request.is_json():
         abort(400, 'Not a JSON')
 
     data = request.get_json()
@@ -54,7 +54,7 @@ def update_cities(city_id):
     if not city:
         abort(404)
     
-    if not request.get_json():
+    if not request.is_json():
         abort(404, 'Not a JSON')
     
     data = request.get_json
