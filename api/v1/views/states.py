@@ -17,7 +17,6 @@ def get_states():
                  strict_slashes=False)
 def get_state(state_id):
     state = storage.get("State", state_id)
-    print(F"ssssssss {state}")
     if state is None:
         abort(404)
     return jsonify(state.to_dict())

@@ -1,4 +1,4 @@
-# In api/v1/views/users.py
+#!/usr/bin/python3
 """ Views for users routes"""
 
 from flask import jsonify, abort, request
