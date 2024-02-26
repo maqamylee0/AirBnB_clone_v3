@@ -13,6 +13,7 @@ from api.v1.views import app_views
 @app_views.route('/<place_id>/reviews', methods=['GET'],
                  strict_slashes=False)
 def get_list_of_reviews(place_id):
+    """retrives list of reviews"""
     place = storage.get(Place, place_id)
     if not place:
         abort(404)
@@ -23,6 +24,7 @@ def get_list_of_reviews(place_id):
 @app_views.route('/reviews/<review_id>', methods=['GET'],
                  strict_slashes=False)
 def get_review(review_id):
+    """gets objects in review"""
     review = storage.get(Review, review_id)
     if not review:
         abort(404)
@@ -32,6 +34,7 @@ def get_review(review_id):
 @app_views.route('/reviews/<review_id>', methods=['DELETE'],
                  strict_slashes=False)
 def delete_review(review_id):
+    """deletes reviews"""
     review = storage.get(Review, review_id)
     if not review:
         abort(404)
@@ -43,6 +46,7 @@ def delete_review(review_id):
 @app_views.route('/places/<place_id>/reviews', methods=['POST'],
                  strict_slashes=False)
 def creates_reviews(place_id):
+    """creates reviews"""
     place = storage.get(Place, place_id)
     if not place:
         abort(404)
@@ -62,6 +66,7 @@ def creates_reviews(place_id):
 @app_views.route('/reviews/<review_id>', methods=['PUT'],
                  strict_slashes=False)
 def update_review(review_id):
+    """updates review"""
     review = storage.get(Review, review_id)
     if not review:
         abort(404)
