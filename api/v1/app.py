@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-# Path: api/v1/app.py
+""" Main application"""
+
 
 from models import storage
 from api.v1.views import app_views
