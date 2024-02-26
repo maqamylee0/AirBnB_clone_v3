@@ -1,22 +1,15 @@
 #!/usr/bin/python3
-# initialise package
+""" Import all views from api.v1.views """
+
 
 from flask import Blueprint
-from api.v1.views.states import init_state
-from .index import *
-from .cities import *
-from .places_reviews import *
-from .states import *
-from api.v1.views.amenities import init_amenity
-from api.v1.views.user import init_user
 
 app_views = Blueprint('app_views', __name__, url_prefix='/api/v1')
 
-app_views = Blueprint('app_views', __name__, url_prefix='/api/v1')
-init_app(app_views)
-init_state(app_views)
-init_amenity(app_views)
-init_user(app_views)
-init_app(app_views)
-init_cities(app_views)
-init_review(app_views)
+from api.v1.views.states import *
+from api.v1.views.amenities import *
+from api.v1.views.users import *
+from api.v1.views.cities import *
+from api.v1.views.places import *
+from api.v1.views.places_reviews import *
+from api.v1.views.index import *
