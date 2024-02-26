@@ -9,6 +9,7 @@ from api.v1.views import app_views
 
 @app_views.route('/states', methods=['GET'], strict_slashes=False)
 def get_states():
+    """get all states"""
     states = storage.all("State")
     return jsonify([state.to_dict() for state in states.values()])
 
@@ -16,6 +17,7 @@ def get_states():
 @app_views.route('/states/<state_id>', methods=['GET'],
                  strict_slashes=False)
 def get_state(state_id):
+    """get single state objects"""
     state = storage.get("State", state_id)
     if state is None:
         abort(404)
@@ -25,6 +27,7 @@ def get_state(state_id):
 @app_views.route('/states/<state_id>', methods=['DELETE'],
                  strict_slashes=False)
 def delete_state(state_id):
+    """delete state"""
     state = storage.get("State", state_id)
     if state is None:
         abort(404)
@@ -35,6 +38,7 @@ def delete_state(state_id):
 
 @app_views.route('/states', methods=['POST'], strict_slashes=False)
 def create_state():
+    """"creates states"""
     if not request.is_json:
         return jsonify({"error": "Not a JSON"}), 400
     data = request.get_json()
@@ -48,6 +52,7 @@ def create_state():
 @app_views.route('/states/<state_id>', methods=['PUT'],
                  strict_slashes=False)
 def put_state(state_id):
+    """update states"""
     state = storage.get("State", state_id)
     if not request.is_json:
         return jsonify({"error": "Not a JSON"}), 400
